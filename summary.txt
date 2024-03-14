@@ -1,0 +1,7 @@
+The encode_1MM and decode_1MM functions are a custom data compression and decompression algorithm. The encode_1MM function takes an input string or integer and returns a compressed version of the input. The decode_1MM function takes a compressed string and returns the original input.
+
+The encode_1MM function works by converting the input string or integer into a base-X number, where X is a fixed integer. It then encodes this base-X number using a modified version of base-64 encoding, which replaces certain characters with others to create a more compact representation. The decode_1MM function works by reversing this process, by decoding the modified base-64 encoded string and converting it back into the original base-X number, and then into the original input string or integer.
+
+One notable feature of these functions is that they include a special "sentinel" value at the beginning of the encoded output string to indicate that the input string has been encoded using this approach. This allows the decode_1MM function to handle input strings that have not been encoded using this approach, by simply returning the original input string if the sentinel value is not present.
+
+These functions can be used to compress and decompress data for storage or transmission. However, it is important to keep in mind that the amount of compression achieved will depend on the characteristics of the input data, and may not always be significant.

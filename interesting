@@ -1,0 +1,28 @@
+
+def encode_1MM(number):
+    encoded = ''
+    while number > 0:
+        encoded = baseX.b64encode(number % X).decode().replace('+', '~').replace('/', '\\').replace('=', '|').replace('-', '_').replace('_', '-').replace('.', '!').replace('!', '.').replace('#', '@').replace('@', '#').replace('a', 'A').replace('A', 'a').replace('b', '') + encoded
+        number //= X
+    return encoded
+
+def decode_1MM(encoded):
+    decoded = 0
+    for i, c in enumerate(reversed(encoded)):
+        decoded += baseX.b64decode(c.replace('~', '+').replace('\\', '/').replace('|', '=').replace('-', '_').replace('_', '-').replace('.', '!').replace('!', '.').replace('#', '@').replace('@', '#').replace('a', 'A').replace('A', 'a').replace('b', '').encode()) * X**i
+    return decoded
+
+Allow the alphabet size to decrease if baseX is smaller than 1052672
+
+def encode_1MM(number):
+    encoded = ''
+    while number > 0:
+        encoded = baseX.b64encode(number % X).decode().replace('+', '~').replace('/', '\\').replace('=', '|').replace('-', '_').replace('_', '-').replace('.', '!').replace('!', '.').replace('#', '@').replace('@', '#').replace('a', 'A').replace('A', 'a') + encoded
+        number //= X
+    return encoded
+
+def decode_1MM(encoded):
+    decoded = 0
+    for i, c in enumerate(reversed(encoded)):
+        decoded += baseX.b64decode(c.replace('~', '+').replace('\\', '/').replace('|', '=').replace('-', '_').replace('_', '-').replace('.', '!').replace('!', '.').replace('#', '@').replace('@', '#').replace('a', 'A').replace('A', 'a').encode()) * X**i
+    return decoded
